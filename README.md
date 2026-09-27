@@ -48,14 +48,13 @@ This project is built as an open-source, lightweight dashcam system based on sim
 
 ## Known Issues
 
-- The system can sometimes count a person inside a vehicle as a separate tracked object, even though that person is already part of the detected vehicle.
-
+- One issue I noticed is that the system may detect the vehicle on which the dashcam is mounted as another vehicle, causing it to be incorrectly counted as a separate tracked object.
 ## Getting Started
 
 ### Install
 
 ```bash
-git clone https://github.com/<your-username>/Open-Dashcam-System.git
+git clone https://github.com/i0nlyaziz/Open-Dashcam-System.git
 cd Open-Dashcam-System
 pip install -r requirements.txt
 ```
@@ -79,8 +78,12 @@ Open-Dashcam-System/
 ├── requirements.txt
 ├── .gitignore
 ├── main.py                 # detection, depth estimation, tracking, OCR, and database logging
+├── weights/
+│   ├── yolo26n.pt           # detection model (not tracked in git — see below)
+│   ├── yolo26n-depth.pt     # depth estimation model (not tracked in git — see below)
+│   └── README.md
 └── results/
-    └── demo.jpg               # sample detection output
+    └── demo.jpg             # sample detection output
 ```
 
 `yolo26n.pt` and `yolo26n-depth.pt` are stock pretrained models — they download automatically the first time the script runs, so they aren't included in this repo.
